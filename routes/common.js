@@ -16,7 +16,7 @@ router.put('/updateJobSeekerInfo/:id', controller.updateJobSeekerInfo);
 router.delete('/deleteJobSeekerInfo/:id', controller.deleteJobSeekerInfo);
 router.get('/getJobSeekerInfo/:id', controller.getJobSeekerInfo);
 router.get('/getJobSeekerInfo', controller.getJobSeekerInfo);
-router.post('/checkCandidateResultOutput', controller.checkCandidateResultOutput);
+
 //Question & Answer with xlxs and csv
 router.post('/uploadQuestionSheet', upload.fields([{
 	name: 'db_xlsx',
@@ -35,4 +35,6 @@ router.get('/getQuizQuestionByExpAndProfile/:id', controller.getQuizQuestionByEx
 router.post('/sendQuizLoginCredentialsViaEmail', controller.sendQuizLoginCredentialsViaEmail);
 //Before quiz check login-password
 router.post('/checkCandidateLoginCredentials', controller.checkCandidateLoginCredentials);
+//check seeker result
+router.post('/checkCandidateResultOutput', controller.checkCandidateResultOutput);
 module.exports = router;

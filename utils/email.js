@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 const JobSeeker = require("../modals/JobSeeker");
 
-const emailSender = "abhishekcdc2020@gmail.com";
+const emailSender = "test@gmail.com";
 const sendEmail = async function (data, res) {
     try {
         switch (data.purpose) {

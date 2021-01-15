@@ -11,17 +11,7 @@ module.exports.authenticate = (req, res, next) => {
 		message: 'No token provided.'
 	})
 	if (authHeader) {
-
-		console.log('=====authHeader======',authHeader);
-		console.log('-------accessTokenSecret-------------',accessTokenSecret);
 		jwt.verify(authHeader, accessTokenSecret, (err, user) => {
-			console.log("coming in if condition-reeree", err);
-			// if (err) {
-			// 	return res.sendStatus(403).send({
-			// 		code: 'invalid',
-			// 		message: 'Token empty.'
-			// 	})
-			// }
 			if (err && err.name === 'TokenExpiredError')
 				return res.status(401).send({
 					code: 'TokenExpiredError',

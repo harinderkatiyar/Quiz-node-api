@@ -72,8 +72,6 @@ async function hrLogin(req, res) {
 		});
 	}
 }
-
-
 /**
 FOR  Hr/admin Registration
 **/
@@ -110,6 +108,7 @@ FOR ADD SINGLE QUESTION
 **/
 async function addSingleQuestion(req, res) {
 	try {
+console.log('---Hello----',req.body);
 		let savedUser;
 		const question = new Question({
 			question_id: uuidv4(),
@@ -269,6 +268,7 @@ FOR ADD JOB SEEKER
 async function addJobSeekerInfo(req, res) {
 	try {
 		let savedUser;
+		console.log(req.body,"-----------");
 		const jobSeeker = new JobSeeker({
 			job_seeker_id: uuidv4(),
 			name: req.body.name,
@@ -278,11 +278,11 @@ async function addJobSeekerInfo(req, res) {
 			profile: req.body.profile,
 			experience: req.body.experience,
 			duration: req.body.duration,
-			isQuizRequired: req.body.isQuizRequired,
-			quizMailReceived: req.body.quizMailReceived,
-			testGiven: req.body.testGiven,
-			resultMailReceived: req.body.resultMailReceived,
-			status: req.body.status
+			isQuizRequired: req.body.isQuizRequired =="true"? true:false,
+			quizMailReceived:false,
+			testGiven:false,
+			resultMailReceived: false,
+			status: true
 		});
 		savedUser = await jobSeeker.save();
 		if(savedUser.isQuizRequired === true || savedUser.isQuizRequired === "true") {
